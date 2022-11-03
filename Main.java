@@ -1,10 +1,11 @@
-import src.*;
+import src.App;
+import src.LoginPanel;
 
 public class Main {
 
   public static void main(String[] args) {
 
-    App app = new App();
-    app.show();
+    App.prepareGUI();
+    App.show(new LoginPanel().getPanel());
   }
 }
