@@ -6,16 +6,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
+import src.Utils.Colors;
+
 public class PasswordInput {
   
   private JPanel panel;
   private JLabel label;
   private JPasswordField password;
 
-  public PasswordInput (String labelText){
+  public PasswordInput (String name){
     this.panel = new JPanel();
+    panel.setName(name);
     this.panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-    this.label = new JLabel(labelText);
+    this.label = new JLabel(name + ": ");
+    this.label.setForeground(Colors.panelText);
     this.password = new JPasswordField(20);
     this.password.setText("*******");
     this.panel.setOpaque(false);

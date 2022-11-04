@@ -6,16 +6,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import src.Utils.Colors;
+
 public class TextInput {
 
   private JPanel panel;
   private JLabel label;
   private JTextField field;
 
-  public TextInput(String labelText, String text) {
+  public TextInput (String name, String text){
     this.panel = new JPanel();
+    this.panel.setName(name);
     this.panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-    this.label = new JLabel(labelText);
+    this.label = new JLabel(name + ": ");
+    this.label.setForeground(Colors.panelText);
     this.field = new JTextField(20);
     this.field.setText(text);
     this.panel.setOpaque(false);
@@ -36,6 +40,3 @@ public class TextInput {
     return this.panel;
   }
 }
- 
-
-   

@@ -1,6 +1,5 @@
 package src;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
@@ -9,6 +8,8 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import src.Utils.Colors;
 
 public class App{
 
@@ -22,7 +23,7 @@ public class App{
     mainFrame = new JFrame("MedHub");
     mainFrame.setSize(600, 900);
     mainFrame.setLayout(new GridLayout(3, 1));
-    mainFrame.getContentPane().setBackground(new Color(102, 178, 255));
+    mainFrame.getContentPane().setBackground(Colors.background);
     mainFrame.addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent windowEvent){
         System.exit(0);
@@ -30,10 +31,10 @@ public class App{
     });
 
     headerLabel = new JLabel("", JLabel.CENTER);
-    headerLabel.setForeground(Color.white);
+    headerLabel.setForeground(Colors.header);
     headerLabel.setFont(headerLabel.getFont().deriveFont(32f));
     msgLabel = new JLabel("", JLabel.CENTER);
-    msgLabel.setForeground(Color.white);
+    msgLabel.setForeground(Colors.msg);
 
     mainPanel = new JPanel();
     mainPanel.setLayout(new FlowLayout());

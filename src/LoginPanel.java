@@ -1,6 +1,5 @@
 package src;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -11,18 +10,21 @@ import javax.swing.JPanel;
 
 import src.Components.PasswordInput;
 import src.Components.TextInput;
+import src.Utils.Colors;
 
 public class LoginPanel {
 
   private JPanel panel;
+  private JPanel email;
+  private JPanel password;
 
   public LoginPanel() {
 
     App.setHeader("Login");
-    panel = new JPanel();
+    this.panel = new JPanel();
 
-    JPanel email = new TextInput("Email: ", "email@email.com").getPanel();
-    JPanel password = new PasswordInput("Password: ").getPanel();
+    this.email = new TextInput("Email", "email@email.com").getPanel();
+    this.password = new PasswordInput("Password").getPanel();
 
     JButton signupButton = new JButton("Sign up");
     signupButton.addActionListener(new ActionListener() {
@@ -36,9 +38,9 @@ public class LoginPanel {
       public void actionPerformed(ActionEvent e) {
         try {
           JPanel parent = (JPanel) panel.getParent();
+          authenticate();
           parent.remove(panel);
           parent.updateUI();
-
           // TODO: Go to Home
         } catch (Exception ex) {
           App.setMsg("Failed to log in. Type your email and password and try again.");
@@ -51,14 +53,19 @@ public class LoginPanel {
     buttonPanel.add(signupButton);
     buttonPanel.add(loginButton);
 
-    panel.setLayout(new GridLayout(3, 1));
-    panel.setBackground(new Color(153, 204, 255));
-    panel.add(email);
-    panel.add(password);
-    panel.add(buttonPanel);
+    this.panel.setBackground(Colors.panel);
+    this.panel.add(email);
+    this.panel.add(password);
+    this.panel.add(buttonPanel);
+    this.panel.setLayout(new GridLayout(panel.getComponentCount(), 1));
   }
 
   public JPanel getPanel() {
     return this.panel;
+  }
+
+  private void authenticate() throws Exception {
+    // TODO: Validate login
+    throw new Exception();
   }
 }
