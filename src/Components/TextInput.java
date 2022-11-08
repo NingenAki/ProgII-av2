@@ -39,4 +39,12 @@ public class TextInput {
   public JPanel getPanel(){
     return this.panel;
   }
+
+  public String getInput(){
+    return this.field.getText();
+  }
+
+  public JTextField getField(){
+    return this.field;
+  }
 }

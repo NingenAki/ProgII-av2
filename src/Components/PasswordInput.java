@@ -39,4 +39,12 @@ public class PasswordInput {
   public JPanel getPanel(){
     return this.panel;
   }
+  
+  public char[] getInput(){
+    return this.password.getPassword();
+  }
+
+  public JPasswordField getPassword(){
+    return this.password;
+  }
 }
